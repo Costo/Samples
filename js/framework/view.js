@@ -12,6 +12,7 @@ var defaults = {
    id          : null,
    el          : null,
    model       : {},
+   events      : {},
    render      : function() {
       return this;
    },
@@ -20,7 +21,12 @@ var defaults = {
          this.id = generateId();
       }
       if( this.el === null ) {
-         this.el = $( '<' + this.tagName + '>' )[0];
+         this.el = $( '<' + this.tagName + '>' ).attr( 'id', this.id )[0];
+      }
+      for( var selector in this.events ) {
+         for( var event in this.events[ selector ] ) {
+            $( this.el ).delegate( selector, event, this.events[ selector ][ event ] );
+         }
       }
    }
 };

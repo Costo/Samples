@@ -22,6 +22,11 @@ this.Fw = {
 
 
       return child;
+   },
+   bind: function( func, context ) {
+      return function() {
+         func.apply( context, arguments );
+      }
    }
 };
 
