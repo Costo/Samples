@@ -8,6 +8,6 @@ $(function(){
       streamView.render();
    });
 
-   $( 'body' ).append( searchView.render().el )
+   $( '#app' ).append( searchView.render().el )
       .append( streamView.el );
 });
