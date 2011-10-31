@@ -7,6 +7,7 @@ this.Fw = {
             obj[p] = props[p];
          }
       }
+      return obj;
    },
    inherits: function( parent, props ) {
       var child = function() {
@@ -23,11 +24,32 @@ this.Fw = {
 
       return child;
    },
-   bind: function( func, context ) {
+   bind: function( fn, context ) {
       return function() {
-         func.apply( context, arguments );
+         fn.apply( context, arguments );
       }
    }
+};
+
+this.Fw.Events = {
+   bind: function( evt, fn, context ){
+      context || ( context = this );
+      this.events || ( this.events = {} );
+      this.events[ evt ] || ( this.events[ evt ] = [] );
+
+      this.events[ evt ].push( [ fn, context ] );
+   },
+   trigger: function( evt ) {
+      var args;
+      if( !this.events || !this.events[ evt ] ) return;
+
+      args = [].splice.call( arguments, 1 );
+      for( var ix in  this.events[ evt ] ){
+         var pair = this.events[ evt ][ ix ];
+         pair[0].apply( pair[1], args );
+      } 
+
+   } 
 };
 
 }());

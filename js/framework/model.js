@@ -1,15 +1,22 @@
 (function(){
 
-var model = function( options ) {
+var Fw = this;
 
+Fw.Model = function( options ) {
+
+   this.get = get;
    Fw.extend( this, options );
-
 };
 
 var defaults = {
 };
 
-this.Fw.extend( model.prototype, defaults );
-this.Fw.Model = model;
+var get = function( prop ){
+  return this[ prop ]; 
+};
 
-}());
+
+Fw.extend( Fw.Model.prototype, defaults );
+Fw.extend( Fw.Model.prototype, Fw.Events );
+
+}).call( Fw );
