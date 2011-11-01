@@ -11,7 +11,7 @@ App.modules.TweetService = {
 App.models.TweetStream = Fw.inherits( Fw.Model, {});
 
 App.views.TweetStream = Fw.inherits( Fw.View, {
-   template: Handlebars.compile('{{#each results}}<p>{{text}}</p>{{/each}}'),
+   template: Handlebars.compile( $( '#tmpl-tweet-stream' ).html() ),
    render: function(){
       var result = this.template( this.model );
       $( this.el ).html( result ).sortable();
@@ -28,22 +28,23 @@ App.models.TweetSearch = Fw.inherits( Fw.Model, {
 });
 
 App.views.TweetSearch = Fw.inherits( Fw.View, {
+   template: Handlebars.compile( $( '#tmpl-tweet-search' ).html() ),
    actions:{
       form:{
          submit: function(e){
             e.preventDefault();
-            this.$( 'form' ).append( '<small>searching...</small>' );
+            this.$( 'form' ).addClass( 'searching' );
             this.model.search( this.$( 'input' ).val() );
          }
       }
    },
    initialize: function(){
       this.model.bind( 'data', function(){
-         this.$( 'small' ).remove();
+         this.$( 'form' ).removeClass( 'searching' );
       }, this);
    },
    render: function() {
-      $( '<form action="#"><input /> <button type=submit class="btn primary">search</button></form>' ).appendTo( this.el );  
+      $( this.el ).html( this.template() );
       return this;
    }
 })
