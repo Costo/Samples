@@ -12,7 +12,7 @@ var defaults = {
 };
 
 var get = function( prop ){
-  return this[ prop ]; 
+  return this[ prop ];
 };
 
 

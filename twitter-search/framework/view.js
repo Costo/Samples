@@ -22,7 +22,7 @@ var defaults = {
    initialize  : function() {
       
    },
-   $: function( selector ) { return $( selector, this.el ) }
+   $: function( selector ) { return $( selector, this.el ); }
 };
 
 Fw.extend( Fw.View.prototype, defaults );
@@ -41,11 +41,11 @@ var preInitialize = function()
          $( this.el ).delegate( selector, event, Fw.bind( this.actions[ selector ][ event ], this ) );
       }
    }
-}
+};
 
 var generateId = (function() {
   var counter = 0;
-  return function() { return 'view' + ++counter; }; 
+  return function() { return 'view' + (++counter); };
 }());
 
 }).call( Fw, jQuery );

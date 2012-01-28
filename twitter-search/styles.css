@@ -1,0 +1,7 @@
+ul, li {
+   list-style-type:none;
+}
+
+form.searching  input {
+   background: url('images/ajax-loader.gif') no-repeat 95% 50%;
+}

@@ -11,7 +11,7 @@ this.Fw = {
    },
    inherits: function( parent, props ) {
       var child = function() {
-        return parent.apply( this, arguments ); 
+        return parent.apply( this, arguments );
       };
 
       var ctor = function() {};
@@ -27,7 +27,7 @@ this.Fw = {
    bind: function( fn, context ) {
       return function() {
          fn.apply( context, arguments );
-      }
+      };
    }
 };
 
@@ -47,9 +47,9 @@ this.Fw.Events = {
       for( var ix in  this.events[ evt ] ){
          var pair = this.events[ evt ][ ix ];
          pair[0].apply( pair[1], args );
-      } 
+      }
 
-   } 
+   }
 };
 
 }());
