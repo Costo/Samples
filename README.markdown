@@ -1,4 +1,4 @@
 Some things I do.
 
-[twitter-search](http://s3.amazonaws.com/Costo/twitter-search/index.html)  
+[twitter-search](http://costo.github.com/Samples/twitter-search/)  
 Simplistic Twitter search app using a lightweight (yet heavily backbone.js inspired) js framework 
