@@ -1,4 +1,7 @@
-Some things I do.
+## Some things I do.
 
-[twitter-search](http://costo.github.com/Samples/twitter-search/)  
-Simplistic Twitter search app using a lightweight (yet heavily backbone.js inspired) js framework 
+### monalisa
+Console app that generates an Excel spreasheet from a picture of the Mona Lisa
+
+### twitter-search
+An old, simple Twitter search app that doesn't work anymore
