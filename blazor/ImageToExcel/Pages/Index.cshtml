@@ -1,0 +1,33 @@
+﻿@page "/"
+
+<div class="jumbotron mt-4">
+    <h1 class="display-4">Image ➔ Excel converter</h1>
+    <p class="lead">Converts images to Excel spreadsheets right in your browser. Because why not?</p>
+    <hr class="my-4">
+    <p>No data is sent to a remote server. Everything happens in the browser using the magic of Blazor and WASM.</p>
+</div>
+
+<div class="row mb-4">
+    <div class="col">
+        <ImageUpload />
+    </div>
+    <div class="col-8">
+        <h2>⚠️ Warnings</h2>
+        <ul>
+            <li>The performance is abysmal. Your browser window will freeze and complain.</li>
+            <li>Only JPEGs are supported. Use small images (like 300x200) or be prepared to wait.</li>
+            <li>For performance reasons, the resulting image width is only 50 cells. </li>
+            <li>The resulting images will be heavily distorted because resizing cells make the app crash.</li>
+        </ul>
+    </div>
+</div>
+
+<h2>Example</h2>
+<div class="mb-3">
+    <img class="img-fluid" src="images/monalisa.jpg">
+</div>
+<div class="mb-3">
+    <p>
+        <a href="https://1drv.ms/x/s!Ar263X5kCTbVyCtXYOUKgtPqUwXa">View the result</a>
+    </p>
+</div>
